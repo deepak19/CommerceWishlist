@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Sitecore Commerce Sample Plugin Template</Description>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Authors>Sitecore</Authors>
+    <TargetFramework>net472</TargetFramework>
+    <PackageTags>$(PackageTags);Commerce;Sample;Plugin</PackageTags>
+    <PackageIconUrl>http://www.sitecore.net/favicon.ico</PackageIconUrl>
+    <PackageProjectUrl>http://www.sitecore.net/</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.sitecore.net/platform/pricing.aspx</PackageLicenseUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <AssemblyName>Website.Plugin.WishLists</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sitecore.Commerce.Core">
+      <Version>4.0.76</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Commerce.Plugin.Customers" Version="4.0.17" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.ManagedLists" Version="4.0.76" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ConfigureServiceApiBlock.cs" />
+    <Content Include="ConfigureSitecore.cs" />
+    <Content Include="Controllers\CommandsController.cs" />
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors />
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net471' ">
+    <Reference Include="System.Transactions" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+</Project>
